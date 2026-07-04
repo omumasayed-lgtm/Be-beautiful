@@ -1,1 +1,59 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>المنتجات</title>
+  <style>
+    :root{font-family: "Segoe UI", Tahoma, Arial, sans-serif; background:#f6f7fb; color:#222}
+    body{margin:0;padding:24px}
+    header{display:flex;align-items:center;justify-content:space-between;margin-bottom:18px}
+    h1{margin:0;font-size:1.4rem}
+    .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
+    .card{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 6px rgba(0,0,0,0.08);display:flex;flex-direction:column}
+    .img{height:140px;border-radius:6px;background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#6b7a93;font-size:0.9rem;margin-bottom:10px}
+    .title{font-weight:600;margin-bottom:6px}
+    .price{color:#c04a4a;font-weight:700;margin-bottom:8px}
+    .desc{flex:1;font-size:0.9rem;color:#444}
+    .actions{display:flex;gap:8px;margin-top:10px}
+    .btn{padding:8px 10px;border-radius:6px;border:0;cursor:pointer}
+    .btn-primary{background:#2b8aef;color:#fff}
+    .btn-outline{background:#fff;border:1px solid #d0d7e6}
+    @media (max-width:420px){body{padding:12px}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>منتجاتنا</h1>
+    <div>عرض: <strong>الكل</strong></div>
+  </header>
 
+  <main>
+    <section class="grid">
+      <article class="card">
+        <div class="img">صورة المنتج</div>
+        <div class="title">منتج تجريبي 1</div>
+        <div class="price">١٥٠ ر.س</div>
+        <div class="desc">وصف قصير للمنتج، مميزات سريعة وموجزة توضح فائدة المنتج للمشتري.</div>
+        <div class="actions">
+          <button class="btn btn-primary">أضف إلى السلة</button>
+          <button class="btn btn-outline">عرض التفاصيل</button>
+        </div>
+      </article>
+
+      <article class="card">
+        <div class="img">صورة المنتج</div>
+        <div class="title">منتج تجريبي 2</div>
+        <div class="price">٩٥ ر.س</div>
+        <div class="desc">وصف موجز آخر. استبدل المحتوى والروابط والصور بحسب حاجتك.</div>
+        <div class="actions">
+          <button class="btn btn-primary">أضف إلى السلة</button>
+          <button class="btn btn-outline">عرض التفاصيل</button>
+        </div>
+      </article>
+
+      <!-- انسخ البلوك أعلاه لإضافة منتجات أكثر -->
+    </section>
+  </main>
+</body>
+</html>
