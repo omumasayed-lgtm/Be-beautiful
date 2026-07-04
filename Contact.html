@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>كن جميلًا - متجر مستحضرات التجميل</title>
+    <title>تواصل معنا - كن جميلًا</title>
     <style>
         * {
             margin: 0;
@@ -69,7 +69,7 @@
         .hero {
             background: linear-gradient(135deg, #ff69b4, #ff1493);
             color: white;
-            padding: 80px 20px;
+            padding: 60px 20px;
             text-align: center;
         }
 
@@ -81,24 +81,6 @@
         .hero p {
             font-size: 20px;
             margin-bottom: 30px;
-        }
-
-        .btn {
-            display: inline-block;
-            padding: 12px 30px;
-            background-color: white;
-            color: #ff1493;
-            text-decoration: none;
-            border-radius: 50px;
-            font-weight: bold;
-            transition: all 0.3s;
-            border: none;
-            cursor: pointer;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
         .container {
@@ -118,96 +100,139 @@
             color: #ff1493;
         }
 
-        .products-grid {
+        .contact-wrapper {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 30px;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
         }
 
-        .product-card {
+        .contact-form {
             background: white;
+            padding: 40px;
             border-radius: 10px;
-            overflow: hidden;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        .form-group {
+            margin-bottom: 25px;
         }
 
-        .product-image {
-            width: 100%;
-            height: 250px;
-            background: linear-gradient(135deg, #ffd4e5, #ffb3d9);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 60px;
-        }
-
-        .product-info {
-            padding: 20px;
-            text-align: right;
-        }
-
-        .product-name {
-            font-size: 18px;
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
             font-weight: bold;
             color: #333;
-            margin-bottom: 10px;
         }
 
-        .product-price {
-            color: #ff1493;
-            font-size: 20px;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-
-        .product-description {
-            font-size: 14px;
-            color: #666;
-            margin-bottom: 15px;
-        }
-
-        .add-to-cart {
+        .form-group input,
+        .form-group textarea {
             width: 100%;
-            padding: 10px;
-            background-color: #ff1493;
+            padding: 12px;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            font-family: inherit;
+            font-size: 16px;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #ff1493;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 150px;
+        }
+
+        .submit-btn {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
             color: white;
             border: none;
             border-radius: 5px;
-            cursor: pointer;
             font-weight: bold;
-            transition: background-color 0.3s;
+            font-size: 16px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
         }
 
-        .add-to-cart:hover {
-            background-color: #ff69b4;
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
         }
 
-        .features {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-            margin-bottom: 40px;
+        .contact-info {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
 
-        .feature {
-            text-align: center;
-            padding: 20px;
+        .info-item {
+            margin-bottom: 35px;
+            text-align: right;
         }
 
-        .feature-icon {
-            font-size: 40px;
+        .info-item h3 {
+            color: #ff1493;
+            margin-bottom: 10px;
+            font-size: 20px;
+        }
+
+        .info-item p {
+            color: #666;
+            line-height: 1.8;
+        }
+
+        .info-item a {
+            color: #ff1493;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .info-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 1px solid #ddd;
+            text-align: right;
+        }
+
+        .social-links h3 {
+            color: #ff1493;
             margin-bottom: 15px;
         }
 
-        .feature h3 {
-            color: #ff1493;
-            margin-bottom: 10px;
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: flex-end;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 45px;
+            height: 45px;
+            background: #ff1493;
+            color: white;
+            border-radius: 50%;
+            text-decoration: none;
+            font-size: 20px;
+            transition: background 0.3s, transform 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: #ff69b4;
+            transform: translateY(-3px);
         }
 
         footer {
@@ -253,6 +278,16 @@
             padding-top: 20px;
         }
 
+        .success-message {
+            background-color: #4caf50;
+            color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            text-align: center;
+            display: none;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
@@ -273,12 +308,22 @@
                 font-size: 16px;
             }
 
-            .section h2 {
-                font-size: 24px;
+            .contact-wrapper {
+                grid-template-columns: 1fr;
+                gap: 30px;
             }
 
-            .products-grid {
-                grid-template-columns: 1fr;
+            .contact-form,
+            .contact-info {
+                padding: 25px;
+            }
+
+            .social-icons {
+                justify-content: center;
+            }
+
+            .info-item {
+                text-align: center;
             }
         }
     </style>
@@ -290,141 +335,109 @@
             <div class="cart-icon">🛒</div>
             <nav>
                 <ul>
-                    <li><a href="#products">المنتجات</a></li>
-                    <li><a href="#about">عننا</a></li>
-                    <li><a href="#contact">تواصل</a></li>
+                    <li><a href="index.html#products">المنتجات</a></li>
+                    <li><a href="index.html#about">عننا</a></li>
+                    <li><a href="Contact.html">تواصل</a></li>
                 </ul>
             </nav>
-            <a href="#" class="logo">✨ كن جميلًا</a>
+            <a href="index.html" class="logo">✨ كن جميلًا</a>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <h1>اكتشفي جمالك الحقيقي</h1>
-        <p>أفضل مستحضرات التجميل والعناية بالبشرة</p>
-        <a href="#products" class="btn">تسوقي الآن</a>
+        <h1>تواصلي معنا</h1>
+        <p>نحن هنا للإجابة على جميع أسئلتك والاستماع إلى اقتراحاتك</p>
     </section>
 
-    <!-- Features Section -->
+    <!-- Contact Section -->
     <section class="section container">
-        <div class="features">
-            <div class="feature">
-                <div class="feature-icon">✓</div>
-                <h3>منتجات أصلية</h3>
-                <p>جميع منتجاتنا مضمونة وأصلية 100%</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🚚</div>
-                <h3>توصيل سريع</h3>
-                <p>توصيل مجاني للطلبات فوق 50 ريال</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">🔄</div>
-                <h3>استرجاع سهل</h3>
-                <p>استرجاع بدون أسئلة خلال 30 يوم</p>
-            </div>
-            <div class="feature">
-                <div class="feature-icon">💬</div>
-                <h3>دعم العملاء</h3>
-                <p>فريق دعم متاح 24/7</p>
-            </div>
-        </div>
-    </section>
-
-    <!-- Products Section -->
-    <section class="section container" id="products">
-        <h2>منتجاتنا</h2>
-        <div class="products-grid">
-            <!-- Product 1 -->
-            <div class="product-card">
-                <div class="product-image">💄</div>
-                <div class="product-info">
-                    <div class="product-name">أحمر الشفاه الفاخر</div>
-                    <div class="product-price">79 ريال</div>
-                    <p class="product-description">أحمر شفاه بتركيبة ناعمة وطويلة الأمد</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+        <div class="contact-wrapper">
+            <!-- Contact Form -->
+            <div class="contact-form">
+                <div class="success-message" id="successMessage">
+                    شكراً! تم استلام رسالتك بنجاح. سنتواصل معك قريباً.
                 </div>
+                <h2 style="text-align: right; margin-bottom: 30px; color: #ff1493;">أرسلي لنا رسالة</h2>
+                <form id="contactForm">
+                    <div class="form-group">
+                        <label for="name">الاسم الكامل</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email">البريد الإلكتروني</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="phone">رقم الهاتف</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="subject">الموضوع</label>
+                        <input type="text" id="subject" name="subject" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="message">الرسالة</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+
+                    <button type="submit" class="submit-btn">إرسال الرسالة</button>
+                </form>
             </div>
 
-            <!-- Product 2 -->
-            <div class="product-card">
-                <div class="product-image">🧴</div>
-                <div class="product-info">
-                    <div class="product-name">سيرم البشرة</div>
-                    <div class="product-price">129 ريال</div>
-                    <p class="product-description">سيرم فعال لترطيب وتفتيح البشرة</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+            <!-- Contact Information -->
+            <div class="contact-info">
+                <h2 style="text-align: right; margin-bottom: 30px; color: #ff1493;">معلومات التواصل</h2>
+
+                <div class="info-item">
+                    <h3>📞 الهاتف</h3>
+                    <p><a href="tel:+966501234567">+966 50 123 4567</a></p>
                 </div>
-            </div>
 
-            <!-- Product 3 -->
-            <div class="product-card">
-                <div class="product-image">✨</div>
-                <div class="product-info">
-                    <div class="product-name">ماسك الوجه</div>
-                    <div class="product-price">99 ريال</div>
-                    <p class="product-description">ماسك مغذي وشامل العناية</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+                <div class="info-item">
+                    <h3>✉️ البريد الإلكتروني</h3>
+                    <p><a href="mailto:info@bebeautiful.com">info@bebeautiful.com</a></p>
                 </div>
-            </div>
 
-            <!-- Product 4 -->
-            <div class="product-card">
-                <div class="product-image">👁️</div>
-                <div class="product-info">
-                    <div class="product-name">كريم العين</div>
-                    <div class="product-price">89 ريال</div>
-                    <p class="product-description">كريم متقدم لمنطقة العين الحساسة</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+                <div class="info-item">
+                    <h3>💬 WhatsApp</h3>
+                    <p><a href="https://wa.me/966501234567" target="_blank">تحدثي معنا على WhatsApp</a></p>
                 </div>
-            </div>
 
-            <!-- Product 5 -->
-            <div class="product-card">
-                <div class="product-image">💅</div>
-                <div class="product-info">
-                    <div class="product-name">طلاء الأظافر</div>
-                    <div class="product-price">49 ريال</div>
-                    <p class="product-description">ألوان عصرية وتركيبة سريعة الجفاف</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+                <div class="info-item">
+                    <h3>🕐 ساعات العمل</h3>
+                    <p>
+                        السبت - الخميس: من 9:00 صباحاً إلى 9:00 مساءً<br>
+                        الجمعة: من 2:00 مساءً إلى 9:00 مساءً<br>
+                        <strong>الدعم على مدار 24/7</strong>
+                    </p>
                 </div>
-            </div>
 
-            <!-- Product 6 -->
-            <div class="product-card">
-                <div class="product-image">🧼</div>
-                <div class="product-info">
-                    <div class="product-name">غسول الوجه</div>
-                    <div class="product-price">59 ريال</div>
-                    <p class="product-description">غسول لطيف وفعال لجميع أنواع البشرة</p>
-                    <button class="add-to-cart">أضفي للسلة</button>
+                <div class="social-links">
+                    <h3>تابعينا على وسائل التواصل</h3>
+                    <div class="social-icons">
+                        <a href="https://instagram.com" target="_blank" title="Instagram">📷</a>
+                        <a href="https://facebook.com" target="_blank" title="Facebook">f</a>
+                        <a href="https://twitter.com" target="_blank" title="Twitter">𝕏</a>
+                    </div>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="section container" id="about" style="background-color: #f0f0f0;">
-        <h2>عن متجرنا</h2>
-        <p style="text-align: right; margin-bottom: 20px;">
-            نحن متخصصون في توفير أفضل مستحضرات التجميل والعناية بالبشرة من أشهر العلامات التجارية العالمية. 
-            هدفنا هو مساعدتك على اكتشاف جمالك الحقيقي من خلال منتجات عالية الجودة وأسعار منافسة.
-        </p>
-        <p style="text-align: right;">
-            مع فريقنا المتخصص، نضمن لك أفضل تجربة تسوق آمنة وسهلة وممتعة.
-        </p>
     </section>
 
     <!-- Footer -->
-    <footer id="contact">
+    <footer>
         <div class="footer-content">
             <div class="footer-section">
                 <h4>تواصل معنا</h4>
                 <ul>
                     <li><a href="mailto:info@bebeautiful.com">البريد الإلكتروني</a></li>
                     <li><a href="tel:+966501234567">الهاتف: +966501234567</a></li>
-                    <li><a href="#">WhatsApp</a></li>
+                    <li><a href="https://wa.me/966501234567">WhatsApp</a></li>
                 </ul>
             </div>
             <div class="footer-section">
@@ -450,20 +463,37 @@
     </footer>
 
     <script>
-        // Add to cart functionality
-        const addToCartButtons = document.querySelectorAll('.add-to-cart');
-        let cartCount = 0;
+        // Form submission handling
+        const contactForm = document.getElementById('contactForm');
+        const successMessage = document.getElementById('successMessage');
 
-        addToCartButtons.forEach(button => {
-            button.addEventListener('click', function() {
-                cartCount++;
-                alert('تم إضافة المنتج للسلة! 🛒');
-                const cartIcon = document.querySelector('.cart-icon');
-                cartIcon.textContent = '🛒 ' + cartCount;
-            });
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            // Get form data
+            const formData = {
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                phone: document.getElementById('phone').value,
+                subject: document.getElementById('subject').value,
+                message: document.getElementById('message').value
+            };
+
+            // Show success message
+            successMessage.style.display = 'block';
+
+            // Reset form
+            contactForm.reset();
+
+            // Hide success message after 5 seconds
+            setTimeout(() => {
+                successMessage.style.display = 'none';
+            }, 5000);
+
+            console.log('Form Data:', formData);
         });
 
-        // Smooth scrolling
+        // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
                 e.preventDefault();
