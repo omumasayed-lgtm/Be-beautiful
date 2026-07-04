@@ -1,0 +1,807 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كن جميلًا - متجر مستحضرات التجميل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #f5f7fa 0%, #fff9fc 100%);
+            overflow-x: hidden;
+        }
+
+        /* الرأس */
+        header {
+            background: linear-gradient(135deg, #ff1493, #ff69b4, #ff1493);
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 20px rgba(255, 20, 147, 0.3);
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            transform: translateY(-2px);
+            text-shadow: 0 0 10px rgba(255,255,255,0.8);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            right: 0;
+            width: 0;
+            height: 2px;
+            background: white;
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            animation: bounce 1s ease infinite;
+        }
+
+        .cart-icon:hover {
+            transform: scale(1.2);
+            filter: drop-shadow(0 0 8px rgba(255,255,255,0.8));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        /* قسم البطل */
+        .hero {
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 50%;
+            top: -100px;
+            left: -100px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 50%;
+            bottom: -50px;
+            right: -50px;
+            animation: float 8s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(20px); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .hero h1 {
+            font-size: 52px;
+            margin-bottom: 20px;
+            font-weight: 800;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 22px;
+            margin-bottom: 30px;
+            opacity: 0.95;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: white;
+            color: #ff1493;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+            font-size: 16px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.3s ease;
+        }
+
+        .btn:hover::before {
+            left: 100%;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 80px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 42px;
+            margin-bottom: 60px;
+            color: #ff1493;
+            font-weight: 800;
+            position: relative;
+        }
+
+        .section h2::before {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff1493, #ff69b4);
+            border-radius: 2px;
+        }
+
+        /* قسم المميزات */
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 40px 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #ff1493, #ff69b4);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
+        }
+
+        .feature:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.2);
+        }
+
+        .feature:hover::before {
+            transform: translateX(0);
+        }
+
+        .feature-icon {
+            font-size: 50px;
+            margin-bottom: 20px;
+            display: block;
+            animation: bounce 2s ease infinite;
+        }
+
+        .feature h3 {
+            color: #ff1493;
+            margin-bottom: 15px;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        /* شبكة المنتجات */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 2px solid transparent;
+        }
+
+        .product-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            z-index: 1;
+        }
+
+        .product-card:hover {
+            transform: translateY(-15px) rotateZ(1deg);
+            box-shadow: 0 15px 40px rgba(255, 20, 147, 0.3);
+            border-color: #ff1493;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 280px;
+            background: linear-gradient(135deg, #ffd4e5, #ffb3d9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 80px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .product-image::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,255,255,0.1) 25%, transparent 25%, transparent 75%, rgba(255,255,255,0.1) 75%, rgba(255,255,255,0.1));
+            background-size: 30px 30px;
+            animation: shimmer 2s infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%); }
+            100% { transform: translateX(100%); }
+        }
+
+        .product-info {
+            padding: 25px;
+            text-align: right;
+            position: relative;
+            z-index: 2;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #ff1493;
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(135deg, #ff1493, #ff69b4);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            font-size: 15px;
+        }
+
+        .add-to-cart::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.2);
+            transition: left 0.3s ease;
+        }
+
+        .add-to-cart:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+        }
+
+        .add-to-cart:hover::before {
+            left: 100%;
+        }
+
+        /* قسم About */
+        .about-section {
+            background: linear-gradient(135deg, rgba(255, 20, 147, 0.05), rgba(255, 105, 180, 0.05));
+            border-radius: 15px;
+            padding: 50px;
+            text-align: right;
+        }
+
+        .about-section p {
+            font-size: 16px;
+            line-height: 1.8;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* الفوتر */
+        footer {
+            background: linear-gradient(135deg, #1a1a1a, #333);
+            color: white;
+            padding: 60px 20px 30px;
+            text-align: center;
+            position: relative;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+            text-align: right;
+        }
+
+        .footer-section h4 {
+            color: #ff69b4;
+            margin-bottom: 20px;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .footer-section a::before {
+            content: '← ';
+            position: absolute;
+            left: 0;
+            opacity: 0;
+            transition: all 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #ff69b4;
+            transform: translateX(10px);
+        }
+
+        .footer-section a:hover::before {
+            opacity: 1;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 30px;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero {
+                padding: 80px 20px;
+            }
+
+            .hero h1 {
+                font-size: 36px;
+            }
+
+            .hero p {
+                font-size: 18px;
+            }
+
+            .section h2 {
+                font-size: 32px;
+                margin-bottom: 40px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .about-section {
+                padding: 30px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="cart-icon">🛒</div>
+            <nav>
+                <ul>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">عننا</a></li>
+                    <li><a href="#contact">تواصل</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="logo">✨ كن جميلًا</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>اكتشفي جمالك الحقيقي ✨</h1>
+            <p>أفضل مستحضرات التجميل والعناية بالبشرة من أشهر العلامات العالمية</p>
+            <a href="#products" class="btn">تسوقي الآن 🛍️</a>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section container">
+        <div class="features">
+            <div class="feature">
+                <span class="feature-icon">✓</span>
+                <h3>منتجات أصلية</h3>
+                <p>جميع منتجاتنا مضمونة وأصلية 100%</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🚚</span>
+                <h3>توصيل سريع</h3>
+                <p>توصيل مجاني للطلبات فوق 50 ريال</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">🔄</span>
+                <h3>استرجاع سهل</h3>
+                <p>استرجاع بدون أسئلة خلال 30 يوم</p>
+            </div>
+            <div class="feature">
+                <span class="feature-icon">💬</span>
+                <h3>دعم العملاء</h3>
+                <p>فريق دعم متاح 24/7</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section container" id="products">
+        <h2>منتجاتنا المميزة</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">💄</div>
+                <div class="product-info">
+                    <div class="product-name">أحمر الشفاه الفاخر</div>
+                    <div class="product-price">79 ريال</div>
+                    <p class="product-description">أحمر شفاه بتركيبة ناعمة وطويلة الأمد</p>
+                    <button class="add-to-cart">أضفي للسلة ❤️</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">🧴</div>
+                <div class="product-info">
+                    <div class="product-name">سيرم البشرة</div>
+                    <div class="product-price">129 ريال</div>
+                    <p class="product-description">سيرم فعال لترطيب وتفتيح البشرة</p>
+                    <button class="add-to-cart">أضفي للسلة ✨</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">🧖</div>
+                <div class="product-info">
+                    <div class="product-name">ماسك الوجه الذهبي</div>
+                    <div class="product-price">99 ريال</div>
+                    <p class="product-description">ماسك مغذي وشامل العناية</p>
+                    <button class="add-to-cart">أضفي للسلة 👑</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">👁️</div>
+                <div class="product-info">
+                    <div class="product-name">كريم العين الفاخر</div>
+                    <div class="product-price">89 ريال</div>
+                    <p class="product-description">كريم متقدم لمنطقة العين الحساسة</p>
+                    <button class="add-to-cart">أضفي للسلة ⭐</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">💅</div>
+                <div class="product-info">
+                    <div class="product-name">طلاء الأظافر الملون</div>
+                    <div class="product-price">49 ريال</div>
+                    <p class="product-description">ألوان عصرية وتركيبة سريعة الجفاف</p>
+                    <button class="add-to-cart">أضفي للسلة 💎</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">🧼</div>
+                <div class="product-info">
+                    <div class="product-name">غسول الوجه الطبيعي</div>
+                    <div class="product-price">59 ريال</div>
+                    <p class="product-description">غسول لطيف وفعال لجميع أنواع البشرة</p>
+                    <button class="add-to-cart">أضفي للسلة 🌸</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section container" id="about">
+        <h2>عن متجرنا</h2>
+        <div class="about-section">
+            <p>
+                🌟 نحن متخصصون في توفير أفضل مستحضرات التجميل والعناية بالبشرة من أشهر العلامات التجارية العالمية. 
+                هدفنا هو مساعدتك على اكتشاف جمالك الحقيقي من خلال منتجات عالية الجودة وأسعار منافسة.
+            </p>
+            <p>
+                💖 مع فريقنا المتخصص، نضمن لك أفضل تجربة تسوق آمنة وسهلة وممتعة. نؤمن بأن الجمال الحقيقي يأتي من الثقة بالنفس والعناية الجيدة.
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>📞 تواصل معنا</h4>
+                <ul>
+                    <li><a href="mailto:info@bebeautiful.com">📧 البريد الإلكتروني</a></li>
+                    <li><a href="tel:+966501234567">☎️ الهاتف: +966501234567</a></li>
+                    <li><a href="#">💬 WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>🔗 روابط سريعة</h4>
+                <ul>
+                    <li><a href="#">🔐 سياسة الخصوصية</a></li>
+                    <li><a href="#">📋 شروط الاستخدام</a></li>
+                    <li><a href="#">↩️ سياسة الإرجاع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>📱 وسائل التواصل</h4>
+                <ul>
+                    <li><a href="#">📷 Instagram</a></li>
+                    <li><a href="#">👍 Facebook</a></li>
+                    <li><a href="#">🐦 Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 كن جميلًا - جميع الحقوق محفوظة ✨</p>
+        </div>
+    </footer>
+
+    <script>
+        // إضافة للسلة مع تأثيرات
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        let cartCount = 0;
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function(e) {
+                cartCount++;
+                
+                // تأثير الإضافة
+                const cartIcon = document.querySelector('.cart-icon');
+                cartIcon.textContent = '🛒 ' + cartCount;
+                
+                // رسالة ملونة
+                const originalText = this.textContent;
+                this.textContent = 'تمت الإضافة! ✅';
+                this.style.background = 'linear-gradient(135deg, #4caf50, #45a049)';
+                
+                setTimeout(() => {
+                    this.textContent = originalText;
+                    this.style.background = '';
+                }, 2000);
+
+                // إشعار جميل
+                showNotification('تم إضافة المنتج للسلة بنجاح! 🛒');
+            });
+        });
+
+        // إشعار مخصص
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                bottom: 30px;
+                right: 20px;
+                background: linear-gradient(135deg, #ff1493, #ff69b4);
+                color: white;
+                padding: 15px 25px;
+                border-radius: 50px;
+                box-shadow: 0 5px 20px rgba(255, 20, 147, 0.4);
+                z-index: 1000;
+                animation: slideIn 0.3s ease, slideOut 0.3s ease 2.7s;
+                font-weight: bold;
+            `;
+
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes slideIn {
+                    from {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                    to {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideOut {
+                    from {
+                        transform: translateX(0);
+                        opacity: 1;
+                    }
+                    to {
+                        transform: translateX(400px);
+                        opacity: 0;
+                    }
+                }
+            `;
+            document.head.appendChild(style);
+            document.body.appendChild(notification);
+
+            setTimeout(() => notification.remove(), 3000);
+        }
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
