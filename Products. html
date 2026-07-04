@@ -11,7 +11,8 @@
     h1{margin:0;font-size:1.4rem}
     .grid{display:grid;gap:16px;grid-template-columns:repeat(auto-fill,minmax(200px,1fr))}
     .card{background:#fff;border-radius:8px;padding:12px;box-shadow:0 1px 6px rgba(0,0,0,0.08);display:flex;flex-direction:column}
-    .img{height:140px;border-radius:6px;background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#6b7a93;font-size:0.9rem;margin-bottom:10px}
+    .img{height:140px;border-radius:6px;background:#e9eef7;display:flex;align-items:center;justify-content:center;color:#6b7a93;font-size:0.9rem;margin-bottom:10px;overflow:hidden}
+    .img img{width:100%;height:100%;object-fit:cover;display:block}
     .title{font-weight:600;margin-bottom:6px}
     .price{color:#c04a4a;font-weight:700;margin-bottom:8px}
     .desc{flex:1;font-size:0.9rem;color:#444}
@@ -31,7 +32,9 @@
   <main>
     <section class="grid">
       <article class="card">
-        <div class="img">صورة المنتج</div>
+        <div class="img">
+          <img src="https://picsum.photos/seed/product1/600/400" alt="صورة منتج 1">
+        </div>
         <div class="title">منتج تجريبي 1</div>
         <div class="price">١٥٠ ر.س</div>
         <div class="desc">وصف قصير للمنتج، مميزات سريعة وموجزة توضح فائدة المنتج للمشتري.</div>
@@ -42,7 +45,9 @@
       </article>
 
       <article class="card">
-        <div class="img">صورة المنتج</div>
+        <div class="img">
+          <img src="https://picsum.photos/seed/product2/600/400" alt="صورة منتج 2">
+        </div>
         <div class="title">منتج تجريبي 2</div>
         <div class="price">٩٥ ر.س</div>
         <div class="desc">وصف موجز آخر. استبدل المحتوى والروابط والصور بحسب حاجتك.</div>
@@ -52,7 +57,7 @@
         </div>
       </article>
 
-      <!-- انسخ البلوك أعلاه لإضافة منتجات أكثر -->
+      <!-- انسخ البلوك أعلاه لإضافة منتجات أكثر. يمكنك استبدال روابط الصور برابط صورك المحلية أو في مجلد assets/ -->
     </section>
   </main>
 </body>
