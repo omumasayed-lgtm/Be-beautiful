@@ -1,1 +1,481 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>كن جميلًا - متجر مستحضرات التجميل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+
+        .header-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: bold;
+            text-decoration: none;
+            color: white;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s;
+        }
+
+        nav a:hover {
+            opacity: 0.8;
+        }
+
+        .cart-icon {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #ff69b4, #ff1493);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 48px;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 20px;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: white;
+            color: #ff1493;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section {
+            padding: 60px 0;
+        }
+
+        .section h2 {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 50px;
+            color: #ff1493;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            background: linear-gradient(135deg, #ffd4e5, #ffb3d9);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 60px;
+        }
+
+        .product-info {
+            padding: 20px;
+            text-align: right;
+        }
+
+        .product-name {
+            font-size: 18px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .product-price {
+            color: #ff1493;
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .product-description {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .add-to-cart {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff1493;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .add-to-cart:hover {
+            background-color: #ff69b4;
+        }
+
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .feature {
+            text-align: center;
+            padding: 20px;
+        }
+
+        .feature-icon {
+            font-size: 40px;
+            margin-bottom: 15px;
+        }
+
+        .feature h3 {
+            color: #ff1493;
+            margin-bottom: 10px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+            text-align: right;
+        }
+
+        .footer-section h4 {
+            color: #ff1493;
+            margin-bottom: 15px;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 8px;
+            transition: color 0.3s;
+        }
+
+        .footer-section a:hover {
+            color: #ff1493;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 16px;
+            }
+
+            .section h2 {
+                font-size: 24px;
+            }
+
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-content">
+            <div class="cart-icon">🛒</div>
+            <nav>
+                <ul>
+                    <li><a href="#products">المنتجات</a></li>
+                    <li><a href="#about">عننا</a></li>
+                    <li><a href="#contact">تواصل</a></li>
+                </ul>
+            </nav>
+            <a href="#" class="logo">✨ كن جميلًا</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>اكتشفي جمالك الحقيقي</h1>
+        <p>أفضل مستحضرات التجميل والعناية بالبشرة</p>
+        <a href="#products" class="btn">تسوقي الآن</a>
+    </section>
+
+    <!-- Features Section -->
+    <section class="section container">
+        <div class="features">
+            <div class="feature">
+                <div class="feature-icon">✓</div>
+                <h3>منتجات أصلية</h3>
+                <p>جميع منتجاتنا مضمونة وأصلية 100%</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🚚</div>
+                <h3>توصيل سريع</h3>
+                <p>توصيل مجاني للطلبات فوق 50 ريال</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">🔄</div>
+                <h3>استرجاع سهل</h3>
+                <p>استرجاع بدون أسئلة خلال 30 يوم</p>
+            </div>
+            <div class="feature">
+                <div class="feature-icon">💬</div>
+                <h3>دعم العملاء</h3>
+                <p>فريق دعم متاح 24/7</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="section container" id="products">
+        <h2>منتجاتنا</h2>
+        <div class="products-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <div class="product-image">💄</div>
+                <div class="product-info">
+                    <div class="product-name">أحمر الشفاه الفاخر</div>
+                    <div class="product-price">79 ريال</div>
+                    <p class="product-description">أحمر شفاه بتركيبة ناعمة وطويلة الأمد</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+
+            <!-- Product 2 -->
+            <div class="product-card">
+                <div class="product-image">🧴</div>
+                <div class="product-info">
+                    <div class="product-name">سيرم البشرة</div>
+                    <div class="product-price">129 ريال</div>
+                    <p class="product-description">سيرم فعال لترطيب وتفتيح البشرة</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+
+            <!-- Product 3 -->
+            <div class="product-card">
+                <div class="product-image">✨</div>
+                <div class="product-info">
+                    <div class="product-name">ماسك الوجه</div>
+                    <div class="product-price">99 ريال</div>
+                    <p class="product-description">ماسك مغذي وشامل العناية</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+
+            <!-- Product 4 -->
+            <div class="product-card">
+                <div class="product-image">👁️</div>
+                <div class="product-info">
+                    <div class="product-name">كريم العين</div>
+                    <div class="product-price">89 ريال</div>
+                    <p class="product-description">كريم متقدم لمنطقة العين الحساسة</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+
+            <!-- Product 5 -->
+            <div class="product-card">
+                <div class="product-image">💅</div>
+                <div class="product-info">
+                    <div class="product-name">طلاء الأظافر</div>
+                    <div class="product-price">49 ريال</div>
+                    <p class="product-description">ألوان عصرية وتركيبة سريعة الجفاف</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+
+            <!-- Product 6 -->
+            <div class="product-card">
+                <div class="product-image">🧼</div>
+                <div class="product-info">
+                    <div class="product-name">غسول الوجه</div>
+                    <div class="product-price">59 ريال</div>
+                    <p class="product-description">غسول لطيف وفعال لجميع أنواع البشرة</p>
+                    <button class="add-to-cart">أضفي للسلة</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section container" id="about" style="background-color: #f0f0f0;">
+        <h2>عن متجرنا</h2>
+        <p style="text-align: right; margin-bottom: 20px;">
+            نحن متخصصون في توفير أفضل مستحضرات التجميل والعناية بالبشرة من أشهر العلامات التجارية العالمية. 
+            هدفنا هو مساعدتك على اكتشاف جمالك الحقيقي من خلال منتجات عالية الجودة وأسعار منافسة.
+        </p>
+        <p style="text-align: right;">
+            مع فريقنا المتخصص، نضمن لك أفضل تجربة تسوق آمنة وسهلة وممتعة.
+        </p>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>تواصل معنا</h4>
+                <ul>
+                    <li><a href="mailto:info@bebeautiful.com">البريد الإلكتروني</a></li>
+                    <li><a href="tel:+966501234567">الهاتف: +966501234567</a></li>
+                    <li><a href="#">WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                    <li><a href="#">شروط الاستخدام</a></li>
+                    <li><a href="#">سياسة الإرجاع</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>وسائل التواصل</h4>
+                <ul>
+                    <li><a href="#">Instagram</a></li>
+                    <li><a href="#">Facebook</a></li>
+                    <li><a href="#">Twitter</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 كن جميلًا - جميع الحقوق محفوظة</p>
+        </div>
+    </footer>
+
+    <script>
+        // Add to cart functionality
+        const addToCartButtons = document.querySelectorAll('.add-to-cart');
+        let cartCount = 0;
+
+        addToCartButtons.forEach(button => {
+            button.addEventListener('click', function() {
+                cartCount++;
+                alert('تم إضافة المنتج للسلة! 🛒');
+                const cartIcon = document.querySelector('.cart-icon');
+                cartIcon.textContent = '🛒 ' + cartCount;
+            });
+        });
+
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
